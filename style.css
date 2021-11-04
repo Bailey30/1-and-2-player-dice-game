@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;700&display=swap');
 body {
     font-family: 'Source Sans Pro', sans-serif;
     height: 100vh;
@@ -9,58 +9,120 @@ body {
     margin: 0;
     background-color: rgba(255, 255, 255, 0.279);
 }
+
+.choice {
+    display:flex;
+
+}
+#oneplayers, #twoplayers {
+    font-size: 30px;
+    font-weight: 100;
+    margin: 40px
+}
+
+
+
+
+
+
 .oneplayer {
-    
+    display: none;
 }
 .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     position: relative;
-    height: 300px;
-    width: 300px;
-    border: 2px solid black;
+    height: 640px;
+    width: 360px;
+    border: none;
     text-align: center;
+    background-color: white;
+    border-radius: 50px;
+    -webkit-box-shadow: -1px 5px 4px 3px rgba(0,0,0,0.3); 
+box-shadow:0px 5px 4px 1px rgba(0,0,0,0.3);
+
+
 }
 
 .imgcont {
     position: relative;
-    height: 50px;
-    width: 50px;
+    height: 200px;
+    width: 200px;
     margin: 0 auto;
 }
-.imgcont2 {
-    position: relative;
-    height: 90px;
-    width: 90px;
-    background-color: white;
-    margin: 0 auto;
-    border-radius: 20px;
-    border: 0;
-    right: 10px;
-}
-#dice2{
-    margin: 0 auto;
-    height: 90px;
-    width: 90px;
-    border: 0;
-    
 
-}
 img {
     position: absolute;
     height: 100%;
     top: 0;
     left: 0;
 }
+.container :first-child{
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: .3em;;
+}
+
 h2 {
     min-height: 30px;
 }
 h3 {
     min-height: 30px;
 }
+.container h1{
+    padding-top: 50px;
+}
+
+#winlose {
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: .3em;
+}
+#score {
+    font-size: 80px;
+    font-weight: 200;
+    padding: 0;
+    margin: 0;
+}
+
 
 #btn {
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: .3em;;
+    position: relative;
     bottom: 10px;
-    margin: 20px auto;
+    margin: 50px auto;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+    border-left: 0;
+    border-right: 0;
+    width: 200px;
+    height: 60px;
+    
+    background-color: transparent;
+    z-index: 0;
+    overflow: hidden;
+    /* box-shadow: 0px 2px 3px 2px rgba(0,0,0,0.3); */
+
+    
 }
+#btn::before{
+    content: "";
+    position: absolute;
+    left: 0;
+bottom: 0;
+    height: 0%;
+    width: 100%;
+    background-color: rgb(247, 248, 255);
+    transition: height .2s ease;
+    z-index: -1;
+}
+#btn:hover::before{
+    height: 100%;
+}
+
 
 .twoplayer {
     
@@ -68,10 +130,10 @@ h3 {
     width: 590px;
     display: none;
     -webkit-box-shadow: -1px 2px 13px 3px rgba(0,0,0,0.11); 
-    box-shadow: -1px 2px 13px 3px rgba(0,0,0,0.11);
+    box-shadow: 0px 2px 1px 2px rgba(0,0,0,0.11);
     border-radius: 25px;
     background-color: rgb(255, 255, 255);
-    border: 4px solid black;
+    
     
 }
 /* .twoplayer::before {
@@ -85,8 +147,8 @@ h3 {
 } */
 .twocontainer {
     text-align: center;
-    width: 300px;
-    height: 350px;
+    width: 200px;
+    height: 320px;
     /* background-color: antiquewhite; */
 }
 .twocontainer.one {
@@ -96,81 +158,88 @@ h3 {
     /* right: 0%; position: absolute; */
 }
 #rolldice {
-  margin: 0px auto 10px ; 
+  margin: 0px auto  ; 
+  margin-top: 10px;
   border: 0;
-  width: 70px;
+  width: 92px;
   height: 40px;
-  border-radius: 5px;
+  
   background-color: white;
-  -webkit-box-shadow: -1px 2px 13px 3px rgba(0,0,0,0.11); 
-box-shadow: -1px 2px 13px 3px rgba(0,0,0,0.11);
-border: 4px solid black;
-    
+
+   
 }
 #hold {
     margin: 0 auto;
     border: 0;
-  width: 70px;
+  width: 92px;
   height: 40px;
-  border-radius: 5px;
+ 
   background-color: white;
-  -webkit-box-shadow: -1px 2px 13px 3px rgba(0,0,0,0.11); 
-box-shadow: -1px 2px 13px 3px rgba(0,0,0,0.11);
-border: 4px solid black;
+
 }
 #newgame {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+   
     margin: 0 auto;
     border: 0;
-  width: 62px;
-  height: 32px;
-  border-radius: 5px;
-  border: 4px solid black;
-  font-size: 12px;
-  margin-bottom: 10px;
-  margin-top: 10px;
-  -webkit-box-shadow: -1px 2px 13px 3px rgba(0,0,0,0.11); 
-box-shadow: -1px 2px 13px 3px rgba(0,0,0,0.11);
+  width: 92px;
+  height: 55px;
+  border-bottom: 1px solid grey;
+  font-size: 18px;
 }
+#newgame, #hold, #rolldice {
+    letter-spacing: .1em;
+    font-size: 20px;
+    font-weight: 300;
+    border-top: 1px solid grey; 
+    
+}
+
+
 .buttons {
     
     background-color: transparent;
     left: 45%;
-    width: 70px;
-    height: 250px;
+    width: 150px;
+    height: 150px;
     text-align: center;
-    margin: 80px 0 auto;
+    margin:  0 auto;
 }
 #current1,
 #current2{
     margin: 0 auto;
+    margin-top: 100px;
     /* background-color: #7ec3ff; */
-    width: 220px;
-    height: 220px;
+    width: 100px;
+    height: 120px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 25px;
-    font-size: 130px;
-    -webkit-box-shadow: -1px 2px 13px 3px rgba(0,0,0,0.11); 
-    box-shadow: -1px 2px 13px 3px rgba(0,0,0,0.11);
-    border: 4px solid black;
+    font-size: 160px;
+    font-weight: 200;
+   
     
 }
-.name{
-    display: flex;
+
+.imgcont2 {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    margin: 0 auto;
+    border-radius: 20px;
+    border: 0;
+    right: 10px;
 }
-.arrow {
-    height: 30px;
-    width: 30px;
+#dice2{
+    margin: 0 auto;
+    margin-left: 8px;
+    height: 100%;
+    width: 100%;
+    border: 0;
 }
-#arrow1 {
-    height: 30px;
-    width: 30px;
-}
-#arrow2 {
-    height: 30px;
-    width: 30px;
+
+#player1, #player2 {
+    font-weight: 300;
+    letter-spacing: .1em;
 }

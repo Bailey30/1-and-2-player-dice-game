@@ -1,3 +1,4 @@
+
 // one player ---------------------------------------------------
 
 let button = document.getElementById("btn")
@@ -39,7 +40,7 @@ button.addEventListener("click", function () {
 
 // two player ----------------------------------------------------------------
 
-const twoplayer = document.getElementById("twoplayer")
+const twoplayer = document.querySelector(".twoplayer")
 let current = document.getElementById("current")
 const newgame = document.getElementById("newgame")
 const rolldice = document.getElementById("rolldice")
@@ -62,8 +63,8 @@ newgame.addEventListener("click", function () {
     playercount = 0
     current1.innerHTML = 0
     current2.innerHTML = 0
-    player1.innerHTML = "Player 1"
-    player2.innerHTML = "Player 2"
+    player1.innerHTML = "PLAYER 1"
+    player2.innerHTML = "PLAYER 2"
     dice.src = ""
     rolldice.style.display = "block"
     hold.style.display = "block"
@@ -75,8 +76,12 @@ newgame.addEventListener("click", function () {
 hold.addEventListener("click", () => {
     if (playercount === 0) {
         playercount = 1
+        current1.style.color = "black"
+        current2.style.color = "green"
     } else {
         playercount = 0
+        current1.style.color = "green"
+        current2.style.color = "black"
     }
 
 })
@@ -89,19 +94,16 @@ if (playercount === 0) {
         }
     })
 
-
     function p1() {
         let randnum = Math.floor(Math.random() * 6 + 1)
         current1.style.color = "green"
         current2.style.color = "black"
         dice2.src = "images/" + randnum + ".png";
 
-        if (newgame.innerHTML === "Play again" && count >= 20) {
+        if (newgame.innerHTML === "PLAY AGAIN" && count >= 20) {
             count1 = 0
             current1.innerHTML = count
         }
-
-        rolldice.innerHTML = "Roll"
 
         count1 += randnum
         current1.innerHTML = count1
@@ -112,16 +114,17 @@ if (playercount === 0) {
             current1.style.color = "black"
             current2.style.color = "green"
         }
+
         if (count1 >= 20) {
             player1.innerHTML = "You won!"
-            newgame.innerHTML = "Play again"
+            newgame.innerHTML = "PLAY AGAIN"
             playercount = 1
         }
 
         if (randnum === 1 && count1 < 20) {
             player1.innerHTML = "You lost!"
             current1.innerHTML = count1
-            newgame.innerHTML = "Play again"
+            newgame.innerHTML = "PLAY AGAIN"
             count1 = 0
             playercount = 1
             current1.style.color = "black"
@@ -135,18 +138,16 @@ if (playercount === 0) {
         randnum = Math.floor(Math.random() * 6 + 1)
         dice2.src = "images/" + randnum + ".png";
 
-        if (newgame.innerHTML === "Play again" && count2 >= 20) {
+        if (newgame.innerHTML === "PLAY AGAIN" && count2 >= 20) {
             count2 = 0
             current2.innerHTML = count2
         }
         
-        rolldice.innerHTML = "Roll"
-
         count2 += randnum
         current2.innerHTML = count2
         if (count2 >= 20) {
             player2.innerHTML = "You won!"
-            newgame.innerHTML = "Play again"
+            newgame.innerHTML = "PLAY AGAIN"
             rolldice.style.display = "none"
             hold.style.display = "none"
         }
@@ -155,10 +156,32 @@ if (playercount === 0) {
             current2 != 0) {
             player2.innerHTML = "You lost!"
             current2.innerHTML = count2
-            newgame.innerHTML = "Play again"
+            newgame.innerHTML = "PLAY AGAIN"
             count2 = 0
             rolldice.style.display = "none"
             hold.style.display = "none"
         }
     }
 }
+
+// choice screen
+
+let oneplayers = document.getElementById("oneplayers")
+let twoplayers = document.getElementById("twoplayers")
+let choice = document.querySelector(".choice")
+let oneplayer = document.querySelector(".oneplayer")
+
+document.addEventListener("click", function(event) {
+    console.log(event);
+    console.log(event.target.id);
+    console.log(oneplayer.style.display);
+    if (event.target.id === "oneplayers") {
+        choice.style.display = "none"
+        oneplayer.style.display = "block"
+        twoplayer.style.display = "none"
+    } else if (event.target.id === "twoplayers"){
+        choice.style.display = "none"
+        oneplayer.style.display = "none"
+        twoplayer.style.display = "flex"
+    }
+})
